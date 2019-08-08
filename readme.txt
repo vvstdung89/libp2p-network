@@ -4,7 +4,5 @@ TODO:
     Efficient broadcast (FEC-based Unicast)
         Chunk file
         Aggregate file
-    NAT Traversal
-
 
 
