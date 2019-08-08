@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+
 	node1 := p2p.NewNode(p2p.NodeConfig{Port: 10000, PublicIP: "127.0.0.1"})
 
 	node2 := p2p.NewNode(p2p.NodeConfig{Port: 10001, PublicIP: "127.0.0.1"})
