@@ -1,12 +1,12 @@
 package chunk
 
-import "math"
-
-type ChunkPacket struct {
-	msghash string
-	chunkID int
-	data    []byte
-}
+import (
+	"crypto/sha256"
+	"errors"
+	"github.com/gogo/protobuf/proto"
+	"math"
+	"reflect"
+)
 
 type simpleChunk struct {
 	maxSize int
@@ -23,35 +23,56 @@ func NewSimpleChunk() *simpleChunk {
 	}
 }
 
-func (s *simpleChunk) Split(data []byte) [][]byte {
+func (s simpleChunk) Split(data []byte) ([][]byte, error) {
+	hash := sha256.New()
+
 	chunkSize := int(math.Ceil(float64(len(data)) / float64(s.maxSize)))
-	res := make([][]byte, chunkSize)
-	for i := range res {
+	chunkData := make([][]byte, chunkSize)
+	for i := range chunkData {
 		if i == chunkSize-1 { //last chunk
-			res[i] = data[i*s.maxSize:]
+			chunkData[i] = data[i*s.maxSize:]
 		} else {
-			res[i] = data[i*s.maxSize : (i+1)*s.maxSize]
+			chunkData[i] = data[i*s.maxSize : (i+1)*s.maxSize]
 		}
 	}
-	return res
-}
 
-func (s *simpleChunk) Join(data [][]byte) []byte {
-	size := 0
-	for i := range data {
-		size += len(data[i])
+	chunkPackets := make([][]byte, chunkSize)
+	for i, chunk := range chunkData {
+		chunkPacket := &ChunkPacketPB{
+			Data:      chunk,
+			ChunkHash: hash.Sum(chunk),
+			ChunkId:   int32(i),
+			ChunkSize: int32(len(chunkData)),
+			MsgHash:   hash.Sum(data),
+		}
+		data, err := proto.Marshal(chunkPacket)
+		if err != nil {
+			return nil, err
+		}
+		chunkPackets[i] = data
 	}
-	res := []byte{}
-	for i := range data {
-		res = append(res, data[i]...)
+
+	return chunkPackets, nil
+}
+
+func (s simpleChunk) VerifyData(data *ChunkPacketPB) bool {
+	hash := sha256.New()
+	if reflect.DeepEqual(hash.Sum(data.Data), data.ChunkHash) {
+		return true
+	} else {
+		return false
 	}
-	return res
 }
 
-func (s *simpleChunk) VerifyData(data [][]byte) []byte {
-	return nil
-}
+func (s simpleChunk) ReceiveFull(chunks []*ChunkPacketPB, hash []byte) (res []byte, err error) {
+	for i := range chunks {
+		res = append(res, chunks[i].Data...)
+	}
+	hashRes := sha256.New()
+	if reflect.DeepEqual(hashRes.Sum(res), hash) {
+		return res, nil
+	} else {
+		return nil, errors.New("Check sum full nessage error")
+	}
 
-func (s *simpleChunk) ReceiveFull(chunks []*ChunkPacket, hash string, size int) bool {
-	return true
 }

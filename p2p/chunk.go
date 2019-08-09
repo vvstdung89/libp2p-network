@@ -1,30 +1,40 @@
 package p2p
 
-import "node/p2p/chunk"
+/*
+TODO: check for old chunk message and delete it
+*/
+
+import (
+	"errors"
+	"github.com/gogo/protobuf/proto"
+	p2p_chunk "node/p2p/chunk"
+	"sync"
+	"time"
+)
 
 type ChunkManager struct {
-	engine     ChunkEngine
-	chunkCache map[string]ChunkCache
+	engine       ChunkEngine
+	chunkCache   map[string]*ChunkCache
+	chunkCacheMu sync.Mutex
 }
 
 type ChunkCache struct {
-	packetHash   string
-	time         int
-	chunks       []*chunk.ChunkPacket
+	packetHash   []byte
+	time         time.Time
+	chunks       []*p2p_chunk.ChunkPacketPB
 	chunkSize    int
 	chunkReceive int
 }
 
 type ChunkEngine interface {
-	Split(data []byte) [][]byte
-	Join(data [][]byte) []byte
-	VerifyData(data [][]byte) []byte
-	ReceiveFull(chunks []*chunk.ChunkPacket, hash string, size int) bool
+	Split(data []byte) ([][]byte, error)
+	VerifyData(data *p2p_chunk.ChunkPacketPB) bool
+	ReceiveFull(chunks []*p2p_chunk.ChunkPacketPB, hash []byte) (res []byte, err error)
 }
 
 func NewChunkManager() *ChunkManager {
 	res := &ChunkManager{
-		chunkCache: make(map[string]ChunkCache),
+		chunkCache: make(map[string]*ChunkCache),
 	}
 	return res
 }
@@ -34,22 +44,43 @@ func (s *ChunkManager) SetEngine(engine ChunkEngine) *ChunkManager {
 	return s
 }
 
-func (s *ChunkManager) Split(data []byte) [][]byte {
-	splitData := s.engine.Split(data)
-	chunks := [][]byte{}
-	for i, chunk := range splitData {
-		//serialize using protobuf
+func (s *ChunkManager) Split(data []byte) ([][]byte, error) {
+	return s.engine.Split(data)
+}
 
+func (s *ChunkManager) Receive(data []byte) (fullData []byte, err error) {
+	chunkPB := &p2p_chunk.ChunkPacketPB{}
+	err = proto.Unmarshal(data, chunkPB)
+	if err != nil {
+		return nil, errors.New("Cannot deserialize data")
 	}
-	return chunks
-}
 
-func (s *ChunkManager) join(data [][]byte) []byte {
-	return nil
-}
+	isValid := s.engine.VerifyData(chunkPB)
+	if isValid {
+		s.chunkCacheMu.Lock()
+		defer s.chunkCacheMu.Unlock()
 
-func (s *ChunkManager) Receive(data []byte) {
-	//deserialize data using protobuf
-	//add to ChunkCache
-	//check if ChunkCache is full ->
+		msgChunkCache := s.chunkCache[string(chunkPB.MsgHash)]
+		if msgChunkCache == nil {
+			msgChunkCache = &ChunkCache{
+				time:         time.Now(),
+				chunkReceive: 0,
+				chunks:       make([]*p2p_chunk.ChunkPacketPB, chunkPB.ChunkSize),
+				chunkSize:    int(chunkPB.ChunkSize),
+				packetHash:   chunkPB.MsgHash,
+			}
+		}
+		if msgChunkCache.chunks[chunkPB.ChunkId] == nil {
+			msgChunkCache.chunks[chunkPB.ChunkId] = chunkPB
+			msgChunkCache.chunkReceive++
+		}
+		s.chunkCache[string(chunkPB.MsgHash)] = msgChunkCache
+		if msgChunkCache.chunkReceive == msgChunkCache.chunkSize {
+			fullData, err = s.engine.ReceiveFull(msgChunkCache.chunks, chunkPB.MsgHash)
+			delete(s.chunkCache, string(chunkPB.MsgHash))
+		}
+	} else {
+		err = errors.New("Chunk is not valid")
+	}
+	return fullData, err
 }
