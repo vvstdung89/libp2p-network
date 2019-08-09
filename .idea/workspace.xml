@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/p2p/chunk.go" line="33" mnemonic="0" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b6fa820d-ec89-499a-81c2-6e97b5dcf66c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/p2p/chunk/simechunk_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p2p/chunk/simplechunk.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/p2p/chunk.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p/node_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/node_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p2p/chunk/simechunk_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/chunk/simechunk_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p2p/chunk/simplechunk.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/chunk/simplechunk.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,124 +18,104 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/p2p/node.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="387">
-                  <caret line="36" selection-start-line="36" selection-end-line="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/p2p/chunk/simplechunk.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="13" column="25" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/p2p/chunk/simechunk_test.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="152">
-                  <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#15#74#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/p2p/node_test.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#13#146#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="209">
-                  <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#14#155#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/p2p/utils.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="133">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-blankhost@v0.1.3/blank.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2945">
-                  <caret line="173" column="16" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/event/bus.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="627">
-                  <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p@v0.3.0/p2p/host/basic/basic_host.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6688">
-                  <caret line="381" column="20" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/p2p/grpc_server.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/readme.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="114">
-                  <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/node.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="911">
+              <caret line="73" column="19" lean-forward="true" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/chunk.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/api/service_echo.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/grpc_client.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/chunk/simplechunk.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/src/go12/src/testing/testing.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="802" selection-start-line="802" selection-end-line="802" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/src/go12/src/runtime/panic.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="689" selection-start-line="689" selection-end-line="689" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/p2p/chunk/simechunk_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p2p/node_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#13#146#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+              <folding>
+                <element signature="e#14#148#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -150,7 +132,7 @@
       <find>GetFirstName</find>
     </findStrings>
   </component>
-  <component name="GOROOT" path="/usr/local/src/go12" />
+  <component name="GOROOT" path="/usr/src/go12" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -193,9 +175,10 @@
         <option value="$PROJECT_DIR$/p2p/node.go" />
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/main.go" />
-        <option value="$PROJECT_DIR$/p2p/chunk/simechunk_test.go" />
-        <option value="$PROJECT_DIR$/p2p/chunk/simplechunk.go" />
         <option value="$PROJECT_DIR$/p2p/node_test.go" />
+        <option value="$PROJECT_DIR$/p2p/chunk.go" />
+        <option value="$PROJECT_DIR$/p2p/chunk/simplechunk.go" />
+        <option value="$PROJECT_DIR$/p2p/chunk/simechunk_test.go" />
       </list>
     </option>
   </component>
@@ -203,10 +186,10 @@
     <option name="directoryName" value="McbATBav" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="45" />
-    <option name="y" value="-4" />
-    <option name="width" value="3395" />
-    <option name="height" value="1444" />
+    <option name="x" value="2627" />
+    <option name="y" value="25" />
+    <option name="width" value="2493" />
+    <option name="height" value="1415" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -219,21 +202,19 @@
         <subPane>
           <expand>
             <path>
-              <item name="nodep2p" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nodep2p" type="462c0819:PsiDirectoryNode" />
+              <item name="libp2p-network" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libp2p-network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="nodep2p" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nodep2p" type="462c0819:PsiDirectoryNode" />
+              <item name="libp2p-network" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libp2p-network" type="462c0819:PsiDirectoryNode" />
               <item name="p2p" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="nodep2p" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="nodep2p" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="libp2p-network" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libp2p-network" type="462c0819:PsiDirectoryNode" />
+              <item name="p2p" type="462c0819:PsiDirectoryNode" />
+              <item name="chunk" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -252,10 +233,10 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -281,7 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
+  <component name="RunManager" selected="Go Test.TestSimpleChunk_Split in node/p2p/chunk">
     <configuration name="build.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
       <module name="nodep2p" />
       <option name="INTERPRETER_OPTIONS" value="bash" />
@@ -301,26 +282,26 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="TestNewNode_Pubsub in node" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSimpleChunk_Join in node/p2p/chunk" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="nodep2p" />
-      <working_directory value="$PROJECT_DIR$/p2p" />
+      <working_directory value="$PROJECT_DIR$/p2p/chunk" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="node" />
+      <package value="node/p2p/chunk" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestNewNode_Pubsub$" />
+      <pattern value="^TestSimpleChunk_Join$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_Pubsub in node" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSimpleChunk_Split in node/p2p/chunk" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="nodep2p" />
-      <working_directory value="$PROJECT_DIR$/p2p" />
+      <working_directory value="$PROJECT_DIR$/p2p/chunk" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="node" />
+      <package value="node/p2p/chunk" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_Pubsub$" />
+      <pattern value="^TestSimpleChunk_Split$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_Pubsub in node/p2p" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -337,71 +318,72 @@
     <list>
       <item itemvalue="Bash.build.sh" />
       <item itemvalue="Go Build.go build main.go" />
-      <item itemvalue="Go Test.TestNewNode_Pubsub in node" />
-      <item itemvalue="Go Test.Test_Pubsub in node" />
       <item itemvalue="Go Test.Test_Pubsub in node/p2p" />
+      <item itemvalue="Go Test.TestSimpleChunk_Join in node/p2p/chunk" />
+      <item itemvalue="Go Test.TestSimpleChunk_Split in node/p2p/chunk" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestSimpleChunk_Split in node/p2p/chunk" />
+        <item itemvalue="Go Test.TestSimpleChunk_Join in node/p2p/chunk" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.Test_Pubsub in node/p2p" />
         <item itemvalue="Bash.build.sh" />
-        <item itemvalue="Go Test.Test_Pubsub in node" />
-        <item itemvalue="Go Test.TestNewNode_Pubsub in node" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 00m 38s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Join_in_node_p2p_chunk - 2019.08.09 at 08h 33m 05s.xml">
+      <configuration name="TestSimpleChunk_Join in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 03m 25s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 34m 20s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 04m 11s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 35m 32s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 04m 41s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 37m 00s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 04m 48s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 40m 21s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_in_node_test_go_(1) - 2019.08.06 at 15h 09m 13s.xml">
-      <configuration name="TestNewNode in node_test.go (1)" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 42m 39s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_Pubsub_in_node - 2019.08.06 at 15h 46m 02s.xml">
-      <configuration name="TestNewNode_Pubsub in node" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 46m 51s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNewNode_Pubsub_in_node - 2019.08.06 at 15h 46m 08s.xml">
-      <configuration name="TestNewNode_Pubsub in node" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 46m 57s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_Pubsub_in_node - 2019.08.07 at 10h 51m 20s.xml">
-      <configuration name="Test_Pubsub in node" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 47m 55s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_Pubsub_in_node_p2p - 2019.08.07 at 13h 55m 50s.xml">
-      <configuration name="Test_Pubsub in node/p2p" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSimpleChunk_Split_in_node_p2p_chunk - 2019.08.09 at 08h 47m 56s.xml">
+      <configuration name="TestSimpleChunk_Split in node/p2p/chunk" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="-4" width="3395" height="1444" extended-state="6" />
+    <frame x="2627" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07908087" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07968941" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41202673" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39940608" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289269" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41135302" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4992224" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33704528" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33670294" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="LuaJ" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -416,79 +398,18 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-core/host/host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-pubsub/gossipsub.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
-          <folding>
-            <element signature="e#16#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-host/host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p/libp2p.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-          <folding>
-            <element signature="e#16#125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/src/go12/src/testing/testing.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="829" selection-start-line="829" selection-end-line="829" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/src/go12/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="521" selection-start-line="521" selection-end-line="521" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/subscription.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/crypto/key.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-core/host/host.go" />
+    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-pubsub/gossipsub.go" />
+    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p-host/host.go" />
+    <entry file="file://$USER_HOME$/go/src/github.com/libp2p/go-libp2p/libp2p.go" />
+    <entry file="file:///usr/local/src/go12/src/testing/testing.go" />
+    <entry file="file:///usr/local/src/go12/src/runtime/panic.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/subscription.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/crypto/key.go" />
     <entry file="file://$PROJECT_DIR$/p2p/go.sum" />
     <entry file="file://$PROJECT_DIR$/services/grpc/greet.pb.go" />
     <entry file="file://$PROJECT_DIR$/services/greet.go" />
     <entry file="file://$PROJECT_DIR$/services/grpc/echo.pb.go" />
-    <entry file="file://$PROJECT_DIR$/go.mod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p2p/echo.pb.go" />
     <entry file="file://$PROJECT_DIR$/p2p/api/build.sh">
       <provider selected="true" editor-type-id="text-editor">
@@ -513,59 +434,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/pubsub.go">
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/pubsub.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/gossipsub.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/host/host.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-blankhost@v0.1.3/blank.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/event/bus.go" />
+    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p@v0.3.0/p2p/host/basic/basic_host.go" />
+    <entry file="file://$PROJECT_DIR$/p2p/utils.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="114" column="10" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-pubsub@v0.1.0/gossipsub.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/grpc_client.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/api/service_echo.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/host/host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-blankhost@v0.1.3/blank.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2945">
-          <caret line="173" column="16" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/event/bus.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p@v0.3.0/p2p/host/basic/basic_host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6688">
-          <caret line="381" column="20" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -579,58 +457,90 @@
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/utils.go">
+    <entry file="file://$PROJECT_DIR$/go.mod">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="532">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
-            <element signature="e#14#155#0" expanded="true" />
+            <element signature="e#14#148#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/node.go">
+    <entry file="file:///usr/src/go12/src/runtime/panic.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="205">
+          <caret line="689" selection-start-line="689" selection-end-line="689" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/chunk/simechunk_test.go">
+    <entry file="file:///usr/src/go12/src/testing/testing.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="e#15#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p2p/chunk/simplechunk.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="25" />
+        <state relative-caret-position="248">
+          <caret line="802" selection-start-line="802" selection-end-line="802" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/p2p/node_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#13#146#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/node.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="73" column="19" lean-forward="true" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/api/service_echo.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/grpc_client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/chunk.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/chunk/simplechunk.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2p/chunk/simechunk_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
         </state>
       </provider>
     </entry>
