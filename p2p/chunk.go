@@ -23,7 +23,10 @@ type ChunkEngine interface {
 }
 
 func NewChunkManager() *ChunkManager {
-	return &ChunkManager{}
+	res := &ChunkManager{
+		chunkCache: make(map[string]ChunkCache),
+	}
+	return res
 }
 
 func (s *ChunkManager) SetEngine(engine ChunkEngine) *ChunkManager {
