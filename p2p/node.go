@@ -7,6 +7,7 @@ import (
 	"github.com/libp2p/go-libp2p"
 	host "github.com/libp2p/go-libp2p-core"
 	"github.com/libp2p/go-libp2p-core/crypto"
+	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/libp2p/go-libp2p-core/peer"
 	p2pPubSub "github.com/libp2p/go-libp2p-pubsub"
 	ma "github.com/multiformats/go-multiaddr"
@@ -20,6 +21,7 @@ import (
 
 type Node struct {
 	Self           Peer
+	Version        string
 	Host           host.Host
 	Pubsub         *p2pPubSub.PubSub
 	GrpcClient     *GRPCService_Client
@@ -28,13 +30,17 @@ type Node struct {
 	chunkManager   *ChunkManager
 	cacheManager   map[string]*cache.Cache
 	cacheManagerMu sync.Mutex
+
+	MaxConnection int
 }
 
 type NodeConfig struct {
-	PublicIP   string
-	Port       int
-	PrivateKey crypto.PrivKey
-	Blockchain blockchainInf
+	MaxConnection int
+	Version       string
+	PublicIP      string
+	Port          int
+	PrivateKey    crypto.PrivKey
+	Blockchain    blockchainInf
 }
 
 func NewNode(config NodeConfig) *Node {
@@ -73,16 +79,58 @@ func NewNode(config NodeConfig) *Node {
 
 	chunkManager := NewChunkManager().SetEngine(chunk.NewSimpleChunk().MaxSize(50 * 1024))
 
-	return &Node{
-		Host:         p2pHost,
-		Self:         selfPeer,
-		Pubsub:       pubsub,
-		GrpcClient:   grpcClient,
-		GrpcServer:   grpcServer,
-		Blockchain:   config.Blockchain,
-		chunkManager: chunkManager,
-		cacheManager: make(map[string]*cache.Cache),
+	node := &Node{
+		Version:       config.Version,
+		Host:          p2pHost,
+		Self:          selfPeer,
+		Pubsub:        pubsub,
+		GrpcClient:    grpcClient,
+		GrpcServer:    grpcServer,
+		Blockchain:    config.Blockchain,
+		chunkManager:  chunkManager,
+		cacheManager:  make(map[string]*cache.Cache),
+		MaxConnection: config.MaxConnection,
 	}
+
+	node.handleNewConnection()
+	return node
+}
+
+func (node *Node) handleNewConnection() {
+
+	//on new connection
+	node.Host.Network().SetConnHandler((func(conn network.Conn) {
+		//check if reach max connection
+		if node.MaxConnection < len(node.Host.Network().Conns()) {
+			conn.Close()
+		}
+
+		//we will send node version to new connection
+		stream, err := node.Host.NewStream(context.Background(), conn.RemotePeer(), "incognito/version")
+		if err != nil {
+			conn.Close()
+			return
+		}
+		stream.Write([]byte(node.Version))
+		stream.Close()
+	}))
+
+	//on receive node version we close if version on remote peer is difference on local peer
+	node.Host.SetStreamHandler("incognito/version", func(stream network.Stream) {
+		var data = make([]byte, 100)
+		n, err := stream.Read(data)
+		if err != nil {
+			fmt.Println(err)
+			stream.Conn().Close()
+			return
+		}
+		version := data[:n]
+		if string(version) != node.Version {
+			stream.Conn().Close()
+			return
+		}
+		stream.Close()
+	})
 }
 
 func (node *Node) Subscribe(topic string, handler func(*p2pPubSub.Subscription)) error {

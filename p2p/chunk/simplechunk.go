@@ -26,7 +26,6 @@ func NewSimpleChunk() *simpleChunk {
 
 func (s simpleChunk) Split(data []byte) ([][]byte, error) {
 	hash := sha256.New()
-
 	chunkSize := int(math.Ceil(float64(len(data)) / float64(s.maxSize)))
 	chunkData := make([][]byte, chunkSize)
 	for i := range chunkData {
