@@ -3,14 +3,17 @@ package p2p
 import (
 	"context"
 	"fmt"
+	"log"
+	"node/p2p/chunk"
+
 	"github.com/libp2p/go-libp2p"
 	host "github.com/libp2p/go-libp2p-core"
 	"github.com/libp2p/go-libp2p-core/crypto"
 	p2pPubSub "github.com/libp2p/go-libp2p-pubsub"
 	ma "github.com/multiformats/go-multiaddr"
 	p2pGrpc "github.com/paralin/go-libp2p-grpc"
-	"log"
-	"node/p2p/chunk"
+
+	kaddht "github.com/libp2p/go-libp2p-kad-dht"
 )
 
 type Node struct {
@@ -21,6 +24,7 @@ type Node struct {
 	GrpcServer   *GRPCService_Server
 	Blockchain   blockchainInf
 	chunkManager *ChunkManager
+	DHT          *kaddht.IpfsDHT
 }
 
 type NodeConfig struct {
@@ -66,6 +70,12 @@ func NewNode(config NodeConfig) *Node {
 
 	chunkManager := NewChunkManager().SetEngine(chunk.NewSimpleChunk().MaxSize(50 * 1024))
 
+	dht, err := kaddht.New(context.Background(), p2pHost)
+
+	if err := dht.Bootstrap(context.Background()); err != nil {
+		log.Println("failed to bootstrap DHT")
+	}
+
 	return &Node{
 		Host:         p2pHost,
 		Self:         selfPeer,
@@ -74,6 +84,7 @@ func NewNode(config NodeConfig) *Node {
 		GrpcServer:   grpcServer,
 		Blockchain:   config.Blockchain,
 		chunkManager: chunkManager,
+		DHT:          dht,
 	}
 }
 
