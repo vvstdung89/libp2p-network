@@ -60,24 +60,24 @@ func (s *ChunkManager) Receive(data []byte) (fullData []byte, err error) {
 		s.chunkCacheMu.Lock()
 		defer s.chunkCacheMu.Unlock()
 
-		msgChunkCache := s.chunkCache[string(chunkPB.MsgHash)]
+		msgChunkCache := s.chunkCache[string(chunkPB.BloomData)]
 		if msgChunkCache == nil {
 			msgChunkCache = &ChunkCache{
 				time:         time.Now(),
 				chunkReceive: 0,
 				chunks:       make([]*p2p_chunk.ChunkPacketPB, chunkPB.ChunkSize),
 				chunkSize:    int(chunkPB.ChunkSize),
-				packetHash:   chunkPB.MsgHash,
+				packetHash:   chunkPB.BloomData,
 			}
 		}
 		if msgChunkCache.chunks[chunkPB.ChunkId] == nil {
 			msgChunkCache.chunks[chunkPB.ChunkId] = chunkPB
 			msgChunkCache.chunkReceive++
 		}
-		s.chunkCache[string(chunkPB.MsgHash)] = msgChunkCache
+		s.chunkCache[string(chunkPB.BloomData)] = msgChunkCache
 		if msgChunkCache.chunkReceive == msgChunkCache.chunkSize {
-			fullData, err = s.engine.ReceiveFull(msgChunkCache.chunks, chunkPB.MsgHash)
-			delete(s.chunkCache, string(chunkPB.MsgHash))
+			fullData, err = s.engine.ReceiveFull(msgChunkCache.chunks, chunkPB.BloomData)
+			delete(s.chunkCache, string(chunkPB.BloomData))
 		}
 	} else {
 		err = errors.New("Chunk is not valid")
