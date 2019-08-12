@@ -2,25 +2,32 @@ package p2p
 
 import (
 	"context"
+	"crypto/sha256"
 	"fmt"
 	"github.com/libp2p/go-libp2p"
 	host "github.com/libp2p/go-libp2p-core"
 	"github.com/libp2p/go-libp2p-core/crypto"
+	"github.com/libp2p/go-libp2p-core/peer"
 	p2pPubSub "github.com/libp2p/go-libp2p-pubsub"
 	ma "github.com/multiformats/go-multiaddr"
 	p2pGrpc "github.com/paralin/go-libp2p-grpc"
+	"github.com/patrickmn/go-cache"
 	"log"
 	"node/p2p/chunk"
+	"sync"
+	"time"
 )
 
 type Node struct {
-	Self         Peer
-	Host         host.Host
-	Pubsub       *p2pPubSub.PubSub
-	GrpcClient   *GRPCService_Client
-	GrpcServer   *GRPCService_Server
-	Blockchain   blockchainInf
-	chunkManager *ChunkManager
+	Self           Peer
+	Host           host.Host
+	Pubsub         *p2pPubSub.PubSub
+	GrpcClient     *GRPCService_Client
+	GrpcServer     *GRPCService_Server
+	Blockchain     blockchainInf
+	chunkManager   *ChunkManager
+	cacheManager   map[string]*cache.Cache
+	cacheManagerMu sync.Mutex
 }
 
 type NodeConfig struct {
@@ -74,6 +81,7 @@ func NewNode(config NodeConfig) *Node {
 		GrpcServer:   grpcServer,
 		Blockchain:   config.Blockchain,
 		chunkManager: chunkManager,
+		cacheManager: make(map[string]*cache.Cache),
 	}
 }
 
@@ -111,3 +119,27 @@ func (node *Node) Publish(topic string, data []byte) error {
 //	}
 //	return err
 //}
+
+//Pubsub validator
+
+func (self *Node) DiscardDuplicateMessageValidator(topic string, expireSecond time.Duration) func(context.Context, peer.ID, *p2pPubSub.Message) bool {
+	self.cacheManagerMu.Lock()
+	topicCache, alreadyExist := self.cacheManager[topic]
+	if !alreadyExist {
+		self.cacheManager[topic] = cache.New(5*time.Minute, 10*time.Minute)
+		topicCache = self.cacheManager[topic]
+	}
+	self.cacheManagerMu.Unlock()
+
+	f := func(ctx context.Context, peerID peer.ID, msg *p2pPubSub.Message) bool {
+		hash := sha256.New()
+		key := hash.Sum(msg.Data)
+		_, found := topicCache.Get(string(key))
+		if found {
+			return false
+		}
+		topicCache.Add(string(key), 1, expireSecond*time.Second)
+		return true
+	}
+	return f
+}

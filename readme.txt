@@ -7,10 +7,10 @@ Efficient broadcast (simple, FEC-based Unicast)
     TODO: what fi receive fake message
 
 Pubsub
-how to strictly allow subscribe
-    must include signature
-    monitor and add to blacklist
-    TODO: how to avoid duplicate Pubsub
+    how to strictly allow subscribe
+        must include signature
+        monitor and add to blacklist
+    TODO: how to avoid duplicate Pubsub -> RegisterTopicValidator
 
 
 

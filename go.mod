@@ -14,5 +14,6 @@ require (
 	github.com/libp2p/go-libp2p-pubsub v0.1.0
 	github.com/multiformats/go-multiaddr v0.0.4
 	github.com/paralin/go-libp2p-grpc v0.0.0-20171228081709-3d5d33466aef
+	github.com/patrickmn/go-cache v2.1.0+incompatible
 	google.golang.org/grpc v1.19.0
 )
