@@ -14,9 +14,8 @@ func TestChunkManager(t *testing.T) {
 		fmt.Println(err)
 	}
 
-	manager.Receive(chunkPackets[0])
 	manager.Receive(chunkPackets[2])
-
+	manager.Receive(chunkPackets[0])
 	isFull, err := manager.Receive(chunkPackets[1])
 
 	if err != nil {

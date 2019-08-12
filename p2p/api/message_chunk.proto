@@ -4,9 +4,9 @@ package chunk;
 option go_package="chunk";
 
 message ChunkPacketPB {
-    bytes  msg_hash = 1;
-    int32   chunk_size = 2;
-    int32   chunk_id = 3;
+    bytes  bloom_data = 1;
+    int32  chunk_size = 2;
+    int32  chunk_id = 3;
     bytes  chunk_hash = 4;
-    bytes   data = 5;
+    bytes  data = 5;
 }
