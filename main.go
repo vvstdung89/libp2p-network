@@ -12,15 +12,18 @@ import (
 
 func main() {
 
-	node1 := p2p.NewNode(p2p.NodeConfig{Port: 10000, PublicIP: "127.0.0.1"})
-	node2 := p2p.NewNode(p2p.NodeConfig{Port: 10001, PublicIP: "127.0.0.1"})
-	node3 := p2p.NewNode(p2p.NodeConfig{Port: 10002, PublicIP: "127.0.0.1"})
-	node4 := p2p.NewNode(p2p.NodeConfig{Port: 10003, PublicIP: "127.0.0.1"})
+	node1 := p2p.NewNode(p2p.NodeConfig{Port: 10000, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
+	node2 := p2p.NewNode(p2p.NodeConfig{Port: 10001, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
+	node3 := p2p.NewNode(p2p.NodeConfig{Port: 10002, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
+	node4 := p2p.NewNode(p2p.NodeConfig{Port: 10003, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
 
 	fmt.Println("node1 ", node1.Host.ID())
 	fmt.Println("node2 ", node2.Host.ID())
 	fmt.Println("node3 ", node3.Host.ID())
 	fmt.Println("node4 ", node4.Host.ID())
+
+	DHTDemo([]*p2p.Node{node1, node2, node3, node4})
+	return
 
 	err := node2.Host.Connect(context.Background(), peer.AddrInfo{node1.Host.ID(), node1.Host.Addrs()})
 	node3.Host.Connect(context.Background(), peer.AddrInfo{node2.Host.ID(), node2.Host.Addrs()})

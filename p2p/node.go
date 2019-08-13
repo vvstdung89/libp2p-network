@@ -4,8 +4,6 @@ import (
 	"context"
 	"crypto/sha256"
 	"fmt"
-	"log"
-	"node/p2p/chunk"
 
 	"log"
 	"node/p2p/chunk"

@@ -34,9 +34,9 @@ func Test_Connection(t *testing.T) {
 }
 
 func Test_Pubsub(t *testing.T) {
-	node1 := NewNode(NodeConfig{Port: 10000, PublicIP: "127.0.0.1"})
-	node2 := NewNode(NodeConfig{Port: 10001, PublicIP: "127.0.0.1"})
-	node3 := NewNode(NodeConfig{Port: 10002, PublicIP: "127.0.0.1"})
+	node1 := NewNode(NodeConfig{Port: 10000, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
+	node2 := NewNode(NodeConfig{Port: 10001, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
+	node3 := NewNode(NodeConfig{Port: 10002, PublicIP: "127.0.0.1", Version: "1.1", MaxConnection: 10})
 
 	err := node2.Host.Connect(context.Background(), peer.AddrInfo{node1.Host.ID(), node1.Host.Addrs()})
 	if err != nil {

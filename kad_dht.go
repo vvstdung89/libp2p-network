@@ -2,8 +2,10 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"node/p2p"
+	"time"
 
 	"github.com/libp2p/go-libp2p-core/peer"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
@@ -62,8 +64,12 @@ func DHTDemo(hosts []*p2p.Node) {
 			log.Println("connect node error: ", err)
 		}
 		dhtObject := node.DHT
+
 		// update DHT data
 		dhtObject.BootstrapSelf(context.Background())
+		dhtObject.BootstrapRandom(context.Background())
+		//dhtObject.Update(context.Background(), node.Host.ID())
+
 		listNodeDHT = append(listNodeDHT, dhtObject)
 	}
 
@@ -71,10 +77,21 @@ func DHTDemo(hosts []*p2p.Node) {
 	nodeA, nodeB := listNodeDHT[0], listNodeDHT[len(listNodeDHT)-1]
 	log.Printf("node A: ID: %s, key: (%x)", nodeA.PeerID().Pretty(), nodeA.PeerKey())
 	log.Printf("node B: ID: %s, key: (%x)", nodeB.PeerID().Pretty(), nodeB.PeerKey())
-	err := nodeA.Ping(context.Background(), nodeB.PeerID())
-	if err != nil {
-		log.Println("Ping error: ", err)
-	} else {
-		log.Printf("Success Connect From %s To %s ", nodeA.PeerID(), nodeB.PeerID())
-	}
+	//err := nodeA.Ping(context.Background(), nodeB.PeerID())
+
+	//nodeA.Process()
+
+	fmt.Println(nodeB.PutValue(context.Background(), "a", []byte("123")))
+
+	time.Sleep(1 * time.Second)
+	fmt.Println(nodeA.RoutingTable().ListPeers(), nodeA.Host().Peerstore().Peers())
+	//addr, err := nodeA.FindPeer(context.Background(), nodeB.PeerID())
+	fmt.Println(nodeA.GetValue(context.Background(), "a"))
+
+	//if err != nil {
+	//	log.Println(err)
+	//}
+	//else {
+	//	log.Printf("Success Connect From %s To %s ", nodeA.PeerID(), nodeB.PeerID())
+	//}
 }
