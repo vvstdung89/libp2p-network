@@ -31,6 +31,20 @@ import (
 // 	return
 // }
 
+// CONNECT NODE TO ANOTHER NODE WITH INFO AND UPDATE DHT
+func ConnectAndUpdateDHT(node *p2p.Node, addrInfo peer.AddrInfo) (*p2p.Node, error) {
+	err := node.Host.Connect(context.Background(), addrInfo)
+	if err != nil {
+		log.Println("connect node error: ", err)
+		return nil, err
+	}
+	dht := node.DHT
+	// update DHT
+	dht.BootstrapSelf(context.Background())
+	return node, nil
+}
+
+// DEMO NODE CONNECT AND CHECK CONNECTION WITH ANOTHER NODE IN NETWORK
 func DHTDemo(hosts []*p2p.Node) {
 	if len(hosts) <= 0 {
 		return
