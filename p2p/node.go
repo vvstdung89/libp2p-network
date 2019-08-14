@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/sha256"
 	"fmt"
+	opts "github.com/libp2p/go-libp2p-kad-dht/opts"
 
 	"log"
 	"node/p2p/chunk"
@@ -84,7 +85,8 @@ func NewNode(config NodeConfig) *Node {
 
 	chunkManager := NewChunkManager().SetEngine(chunk.NewSimpleChunk().MaxSize(50 * 1024))
 
-	dht, err := kaddht.New(context.Background(), p2pHost)
+	dht, err := kaddht.New(context.Background(), p2pHost, opts.Client(false),
+		opts.NamespacedValidator("v", blankValidator{}))
 
 	if err := dht.Bootstrap(context.Background()); err != nil {
 		log.Println("failed to bootstrap DHT")
@@ -104,7 +106,7 @@ func NewNode(config NodeConfig) *Node {
 		DHT:           dht,
 	}
 
-	node.handleNewConnection()
+	//node.handleNewConnection()
 	return node
 }
 
@@ -203,3 +205,8 @@ func (self *Node) DiscardDuplicateMessageValidator(topic string, expireSecond ti
 	}
 	return f
 }
+
+type blankValidator struct{}
+
+func (blankValidator) Validate(_ string, _ []byte) error        { return nil }
+func (blankValidator) Select(_ string, _ [][]byte) (int, error) { return 0, nil }
