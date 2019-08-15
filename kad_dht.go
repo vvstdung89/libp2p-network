@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"node/p2p"
 	"time"
@@ -81,12 +80,21 @@ func DHTDemo(hosts []*p2p.Node) {
 
 	//nodeA.Process()
 
-	fmt.Println(nodeB.PutValue(context.Background(), "a", []byte("123")))
+	// PUT VALUE TO NODE
+	err := nodeB.PutValue(context.Background(), "/pk/multihash", []byte("123"))
+	if err != nil {
+		log.Println("put value error: ", err)
+	} else {
+		log.Println("put value successfully")
+	}
 
 	time.Sleep(1 * time.Second)
-	fmt.Println(nodeA.RoutingTable().ListPeers(), nodeA.Host().Peerstore().Peers())
+	log.Println("node A list peers :", nodeA.RoutingTable().ListPeers())
+	log.Println("node A peer store:", nodeA.Host().Peerstore().Peers())
 	//addr, err := nodeA.FindPeer(context.Background(), nodeB.PeerID())
-	fmt.Println(nodeA.GetValue(context.Background(), "a"))
+	value, _ := nodeA.GetValue(context.Background(), "/pk/multihash")
+	// fmt.Println(nodeA.GetValue(context.Background(), "a"))
+	log.Println("Get value: ", string(value))
 
 	//if err != nil {
 	//	log.Println(err)
