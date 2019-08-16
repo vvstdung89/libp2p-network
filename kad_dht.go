@@ -3,12 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/libp2p/go-libp2p-core/peer"
+	dht "github.com/libp2p/go-libp2p-kad-dht"
 	"log"
 	"node/p2p"
 	"time"
-
-	"github.com/libp2p/go-libp2p-core/peer"
-	dht "github.com/libp2p/go-libp2p-kad-dht"
 )
 
 // func ConnectToBootstrapNodes(ctx context.Context, h host.Host, mas []multiaddr.Multiaddr) (numConnected int32) {
@@ -66,32 +65,29 @@ func DHTDemo(hosts []*p2p.Node) {
 		dhtObject := node.DHT
 
 		// update DHT data
-		dhtObject.BootstrapSelf(context.Background())
 		dhtObject.BootstrapRandom(context.Background())
+		//dhtObject.BootstrapRandom(context.Background())
 		//dhtObject.Update(context.Background(), node.Host.ID())
-
 		listNodeDHT = append(listNodeDHT, dhtObject)
 	}
+	time.Sleep(5 * time.Second)
+	hosts[0].DHT.RoutingTable().Print()
+	fmt.Println(hosts[0].DHT.RoutingTable().Size())
+	for i, v := range hosts[0].Host.Network().Conns() {
+		fmt.Println(i+1, v)
+	}
 
-	// get 2 node to check Ping
-	nodeA, nodeB := listNodeDHT[0], listNodeDHT[len(listNodeDHT)-1]
-	log.Printf("node A: ID: %s, key: (%x)", nodeA.PeerID().Pretty(), nodeA.PeerKey())
-	log.Printf("node B: ID: %s, key: (%x)", nodeB.PeerID().Pretty(), nodeB.PeerKey())
-	//err := nodeA.Ping(context.Background(), nodeB.PeerID())
+	//// get 2 node to check Ping
+	nodeA, _, nodeC := listNodeDHT[0], listNodeDHT[1], listNodeDHT[len(listNodeDHT)-1]
+	//nodeC.PutValue(context.Background(), "/v/abc", []byte{4, 5, 6})
+	nodeA.PutValue(context.Background(), "/v/abc", []byte{1, 2, 3})
+	//time.Sleep(1 * time.Second)
+	//nodeA.Host().Network().Close()
+	//time.Sleep(1 * time.Second)
+	////nodeB.PutValue(context.Background(), "/v/abc", []byte("123"))
+	////nodeC.PutValue(context.Background(), "/v/abc", []byte("123"))
+	r, _ := nodeC.GetValues(context.Background(), "/v/abc", 100)
+	fmt.Println(len(r))
+	//fmt.Println(nodeC.GetValues(context.Background(), "/v/abc", 20))
 
-	//nodeA.Process()
-
-	fmt.Println(nodeB.PutValue(context.Background(), "a", []byte("123")))
-
-	time.Sleep(1 * time.Second)
-	fmt.Println(nodeA.RoutingTable().ListPeers(), nodeA.Host().Peerstore().Peers())
-	//addr, err := nodeA.FindPeer(context.Background(), nodeB.PeerID())
-	fmt.Println(nodeA.GetValue(context.Background(), "a"))
-
-	//if err != nil {
-	//	log.Println(err)
-	//}
-	//else {
-	//	log.Printf("Success Connect From %s To %s ", nodeA.PeerID(), nodeB.PeerID())
-	//}
 }

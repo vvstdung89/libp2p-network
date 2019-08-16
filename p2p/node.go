@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/sha256"
 	"fmt"
-	opts "github.com/libp2p/go-libp2p-kad-dht/opts"
 
 	"log"
 	"node/p2p/chunk"
@@ -55,10 +54,13 @@ func NewNode(config NodeConfig) *Node {
 	catchError(err)
 
 	ctx := context.Background()
+	//opts := []libp2p.Option{
+	//	libp2p.ConnectionManager(nil),
+	//}
+
 	p2pHost, err := libp2p.New(ctx,
-		libp2p.ListenAddrs(listenAddr), libp2p.Identity(config.PrivateKey),
+		libp2p.ListenAddrs(listenAddr),
 	)
-	catchError(err)
 
 	selfPeer := Peer{
 		PeerID:        p2pHost.ID(),
@@ -85,12 +87,12 @@ func NewNode(config NodeConfig) *Node {
 
 	chunkManager := NewChunkManager().SetEngine(chunk.NewSimpleChunk().MaxSize(50 * 1024))
 
-	dht, err := kaddht.New(context.Background(), p2pHost, opts.Client(false),
-		opts.NamespacedValidator("v", blankValidator{}))
-
-	if err := dht.Bootstrap(context.Background()); err != nil {
-		log.Println("failed to bootstrap DHT")
-	}
+	//dht, err := kaddht.New(context.Background(), p2pHost, opts.Client(false),
+	//	opts.NamespacedValidator("v", blankValidator{}))
+	//
+	//if err := dht.Bootstrap(context.Background()); err != nil {
+	//	log.Println("failed to bootstrap DHT")
+	//}
 
 	node := &Node{
 		Version:       config.Version,
@@ -103,7 +105,7 @@ func NewNode(config NodeConfig) *Node {
 		chunkManager:  chunkManager,
 		cacheManager:  make(map[string]*cache.Cache),
 		MaxConnection: config.MaxConnection,
-		DHT:           dht,
+		//DHT:           dht,
 	}
 
 	//node.handleNewConnection()
