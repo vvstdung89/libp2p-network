@@ -77,17 +77,28 @@ func DHTDemo(hosts []*p2p.Node) {
 		fmt.Println(i+1, v)
 	}
 
-	//// get 2 node to check Ping
-	nodeA, _, nodeC := listNodeDHT[0], listNodeDHT[1], listNodeDHT[len(listNodeDHT)-1]
-	//nodeC.PutValue(context.Background(), "/v/abc", []byte{4, 5, 6})
-	nodeA.PutValue(context.Background(), "/v/abc", []byte{1, 2, 3})
-	//time.Sleep(1 * time.Second)
-	//nodeA.Host().Network().Close()
-	//time.Sleep(1 * time.Second)
-	////nodeB.PutValue(context.Background(), "/v/abc", []byte("123"))
-	////nodeC.PutValue(context.Background(), "/v/abc", []byte("123"))
-	r, _ := nodeC.GetValues(context.Background(), "/v/abc", 100)
-	fmt.Println(len(r))
-	//fmt.Println(nodeC.GetValues(context.Background(), "/v/abc", 20))
+	// get 2 node to check Ping
+	nodeA, nodeB := listNodeDHT[0], listNodeDHT[len(listNodeDHT)-1]
+	log.Printf("node A: ID: %s, key: (%x)", nodeA.PeerID().Pretty(), nodeA.PeerKey())
+	log.Printf("node B: ID: %s, key: (%x)", nodeB.PeerID().Pretty(), nodeB.PeerKey())
+	//err := nodeA.Ping(context.Background(), nodeB.PeerID())
+
+	//nodeA.Process()
+
+	// PUT VALUE TO NODE
+	err := nodeB.PutValue(context.Background(), "/pk/multihash", []byte("123"))
+	if err != nil {
+		log.Println("put value error: ", err)
+	} else {
+		log.Println("put value successfully")
+	}
+
+	time.Sleep(1 * time.Second)
+	log.Println("node A list peers :", nodeA.RoutingTable().ListPeers())
+	log.Println("node A peer store:", nodeA.Host().Peerstore().Peers())
+	//addr, err := nodeA.FindPeer(context.Background(), nodeB.PeerID())
+	value, _ := nodeA.GetValue(context.Background(), "/pk/multihash")
+	// fmt.Println(nodeA.GetValue(context.Background(), "a"))
+	log.Println("Get value: ", string(value))
 
 }

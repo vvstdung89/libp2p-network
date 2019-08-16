@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6fa820d-ec89-499a-81c2-6e97b5dcf66c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/runnode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kad_dht.go" beforeDir="false" afterPath="$PROJECT_DIR$/kad_dht.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/node.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,13 +111,25 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/p2p/node.go">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="543">
                   <caret line="58" column="7" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="58" selection-end-column="7" />
                   <folding>
                     <element signature="e#13#566#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/kad_dht.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="789">
+                  <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#14#153#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -174,15 +182,6 @@
                   <folding>
                     <element signature="e#17#124#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/go/pkg/mod/github.com/paralin/go-libp2p-grpc@v0.0.0-20171228081709-3d5d33466aef/listener.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="228">
-                  <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -278,7 +277,6 @@
         <option value="$PROJECT_DIR$/p2p/chunk_test.go" />
         <option value="$PROJECT_DIR$/p2p/chunk/simplechunk.go" />
         <option value="$PROJECT_DIR$/p2p/node_test.go" />
-        <option value="$PROJECT_DIR$/kad_dht.go" />
         <option value="$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-kad-dht@v0.2.0/util.go" />
         <option value="$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-kad-dht@v0.2.0/dht.go" />
         <option value="$PROJECT_DIR$/main.go" />
@@ -287,6 +285,7 @@
         <option value="$PROJECT_DIR$/runnode.go" />
         <option value="$USER_HOME$/go/pkg/mod/github.com/libp2p/go-libp2p-core@v0.2.0/connmgr/null.go" />
         <option value="$PROJECT_DIR$/p2p/node.go" />
+        <option value="$PROJECT_DIR$/kad_dht.go" />
       </list>
     </option>
   </component>
@@ -495,7 +494,7 @@
     <frame x="44" y="-14" width="3397" height="1455" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07937929" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07937929" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -508,7 +507,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2516704" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2516704" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -657,13 +656,6 @@
           <folding>
             <element signature="e#68#166#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kad_dht.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -857,6 +849,16 @@
           <caret line="58" column="7" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="58" selection-end-column="7" />
           <folding>
             <element signature="e#13#566#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kad_dht.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+          <folding>
+            <element signature="e#14#153#0" expanded="true" />
           </folding>
         </state>
       </provider>
